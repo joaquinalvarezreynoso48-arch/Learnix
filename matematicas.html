@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnix - Matemática</title>
+    <link rel="icon" href="logo-learnix.png" type="image/png">
+    <link rel="stylesheet" href="matematicas.css">
+    <script>
+      const t = localStorage.getItem("learnix-theme");
+      if (t === "light") document.documentElement.classList.add("light-mode");
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="menu.html" class="back-btn">← Inicio</a>
+            
+            <!-- Hamburguesa checkbox para activar menú móvil -->
+            <input type="checkbox" id="menuToggle" class="menu-toggle-checkbox">
+            <label for="menuToggle" class="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <!-- Menú desplegable móvil con perfil, monedas y tema -->
+            <div class="mobile-menu">
+                <div class="mobile-menu-item">
+                    <img src="monedas.png" alt="Monedas" class="coin-icon">
+                    <span id="coinCount">150</span>
+                </div>
+                <button id="themeMobileToggle" class="theme-toggle mobile" aria-label="Cambiar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div class="mobile-profile">
+                    <span class="avatar">👤</span>
+                    <div class="popup">
+                        <strong>Usuario</strong>
+                        <div class="progress">
+                            <div id="xpFill" class="progress-fill"></div>
+                        </div>
+                        <span class="xp-text">XP: <span id="xpValue">60</span>%</span>
+                        <a href="#perfil">Ver perfil</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div class="coins">
+                    <img src="monedas.png" alt="Monedas" class="coin-icon">
+                    <span id="coinCountDesktop">150</span>
+                </div>
+                <div id="profileBtn" class="profile" aria-expanded="false">
+                    <span class="avatar">👤</span>
+                    <div class="popup">
+                        <strong>Usuario</strong>
+                        <div class="progress">
+                            <div id="xpFillDesktop" class="progress-fill"></div>
+                        </div>
+                        <span class="xp-text">XP: <span id="xpValueDesktop">60</span>%</span>
+                        <a href="#perfil">Ver perfil</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="main-title">Matemática</h1>
+                <p class="main-description">Selecciona una lección para comenzar a aprender.</p>
+                
+                <div class="grid">
+                    <a href="geometria-basica.html">
+                    <div class="card">
+                        <div class="card-lessons">8 lecciones</div>
+                        <div class="card-icon">📐</div>
+                        <h3>Geometría Básica</h3>
+                        <p>Aprende las figuras y sus propiedades.</p>
+                    </div></a>
+                    <div class="card">
+                        <div class="card-lessons">15 lecciones</div>
+                        <div class="card-icon">➗</div>
+                        <h3>Álgebra</h3>
+                        <p>Resuelve ecuaciones y domina el álgebra.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">10 lecciones</div>
+                        <div class="card-icon">📊</div>
+                        <h3>Estadística</h3>
+                        <p>Analiza datos y crea gráficos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">8 lecciones</div>
+                        <div class="card-icon">🔢</div>
+                        <h3>Aritmética</h3>
+                        <p>Suma, resta, multiplicación y división.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">6 lecciones</div>
+                        <div class="card-icon">📏</div>
+                        <h3>Medidas y Unidades</h3>
+                        <p>Aprende sobre longitudes, masas y volúmenes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">14 lecciones</div>
+                        <div class="card-icon">📈</div>
+                        <h3>Funciones</h3>
+                        <p>Comprende funciones lineales y cuadráticas.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">9 lecciones</div>
+                        <div class="card-icon">🎯</div>
+                        <h3>Probabilidad</h3>
+                        <p>Calcula la probabilidad de eventos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">16 lecciones</div>
+                        <div class="card-icon">🧮</div>
+                        <h3>Trigonometría</h3>
+                        <p>Aprende senos, cosenos y tangentes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">11 lecciones</div>
+                        <div class="card-icon">🔍</div>
+                        <h3>Lógica Matemática</h3>
+                        <p>Razonamiento lógico y tablas de verdad.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">13 lecciones</div>
+                        <div class="card-icon">💳</div>
+                        <h3>Matemática Financiera</h3>
+                        <p>Intereses, porcentajes y finanzas personales.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">18 lecciones</div>
+                        <div class="card-icon">⚙️</div>
+                        <h3>Cálculo Diferencial</h3>
+                        <p>Derivadas y sus aplicaciones.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">20 lecciones</div>
+                        <div class="card-icon">🌀</div>
+                        <h3>Cálculo Integral</h3>
+                        <p>Integrales y áreas bajo curvas.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">12 lecciones</div>
+                        <div class="card-icon">📦</div>
+                        <h3>Geometría 3D</h3>
+                        <p>Figuras tridimensionales y volúmenes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">7 lecciones</div>
+                        <div class="card-icon">📜</div>
+                        <h3>Historia de las Matemáticas</h3>
+                        <p>Conoce grandes matemáticos y sus descubrimientos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-lessons">15 lecciones</div>
+                        <div class="card-icon">💡</div>
+                        <h3>Resolución de Problemas</h3>
+                        <p>Estrategias para resolver ejercicios complejos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Learnix. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="matematicas.js"></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+/* Estilos específicos para la lección "Puntos y Líneas" */
+
+/* Contenedor y tipografía */
+.lesson-article {
+  max-width: 920px;
+  margin: 1.5rem auto 3rem;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.lesson-hero {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.lesson-title {
+  font-size: 2rem;
+  margin: 0 0 0.25rem;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.lesson-sub {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.lesson-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  background: rgba(255,255,255,0.03);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* CTA */
+.lesson-cta {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  background: linear-gradient(135deg, var(--accent-primary), #3b82f6);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-size: 0.95rem;
+}
+.lesson-cta.primary { background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); }
+.lesson-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+/* Secciones internas */
+.lesson-section {
+  padding: 1rem 1.25rem;
+  border-top: 1px dashed rgba(255,255,255,0.03);
+  margin-top: 1rem;
+}
+
+.lesson-section h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.lead {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Lista de definiciones */
+.definition-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.definition-list li {
+  background: rgba(255,255,255,0.02);
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.02);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Callout destacado */
+.callout {
+  margin: 0.6rem 0 0;
+  padding: 0.8rem 0.9rem;
+  border-left: 4px solid var(--accent-primary);
+  background: linear-gradient(90deg, rgba(59,130,246,0.03), transparent);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Ejemplo / caja informativa */
+.example {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  background: rgba(0,0,0,0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+.example h4 { margin: 0 0 0.4rem; font-size: 1rem; color: var(--accent-primary); }
+.example p { margin: 0; color: var(--text-secondary); }
+
+/* Footer de la lección */
+.lesson-footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  margin-top: 1.25rem;
+}
+.progress-note { color: var(--text-muted); font-size: 0.95rem; }
+
+/* Estilos para la figura del punto */
+.point-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+.point-image {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+/* Grid de información lado a lado (propiedades / notación) */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+@media (max-width: 720px) {
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+/* SVG didáctico y leyenda */
+.svg-example { margin-top: 0.75rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+.point-svg { border-radius: 8px; background: linear-gradient(90deg, rgba(0,0,0,0.02), transparent); padding: 8px; }
+.svg-caption { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Subsections internas */
+.subsection { margin-top: 0.8rem; padding: 0.6rem; background: rgba(255,255,255,0.01); border-radius: 10px; border: 1px solid rgba(255,255,255,0.02); }
+.subsection h4 { margin: 0 0 0.4rem; color: var(--text-primary); }
+
+/* Ajuste para callout y example ya definidos - asegurar contraste en modo claro */
+.callout { color: var(--text-primary); background: linear-gradient(90deg, rgba(59,130,246,0.04), transparent); }
+.example { background: rgba(0,0,0,0.02); }
+
+/* Botón mejorado para marcar completado */
+.mark-complete {
+  display: inline-block;
+  padding: 0.65rem 1.05rem;
+  background: linear-gradient(135deg, var(--accent-primary), #2dd4bf);
+  color: rgba(255,255,255,0.98);
+  border-radius: 12px;
+  border: none;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(16,185,129,0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  font-size: 0.98rem;
+}
+
+.mark-complete:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(16,185,129,0.18);
+}
+
+.mark-complete:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+.mark-complete.disabled,
+.mark-complete[disabled] {
+  opacity: 0.6;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+  background: linear-gradient(135deg, #94f0d9, #7ee6c9);
+  color: rgba(255,255,255,0.9);
+}
+
+/* efecto pulso breve al marcar */
+.mark-complete.pulsing {
+  animation: pulseMark 0.35s ease;
+}
+@keyframes pulseMark {
+  0% { transform: scale(1); box-shadow: 0 8px 30px rgba(16,185,129,0.12); }
+  50% { transform: scale(1.06); box-shadow: 0 20px 50px rgba(16,185,129,0.20); }
+  100% { transform: scale(1); box-shadow: 0 8px 30px rgba(16,185,129,0.12); }
+}
+
+/* pista al lado del botón */
+.activity-hint {
+  display: inline-block;
+  margin-left: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.92rem;
+  vertical-align: middle;
+}
+
+/* Estilos para los checkboxes de actividad */
+.activity-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.activity-tick {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.activity-tick input[type="checkbox"] {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  display: inline-grid;
+  place-items: center;
+  background: var(--bg-card);
+  transition: all 0.18s ease;
+}
+
+.activity-tick input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, var(--accent-primary), #2dd4bf);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(16,185,129,0.12);
+  color: #fff;
+}
+
+.activity-tick .tick-ui {
+  display: inline-block;
+  font-size: 0.95rem;
+  transform: translateY(1px);
+}
+
+.activity-tick input[type="checkbox"] + .tick-ui {
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.activity-tick input[type="checkbox"]:checked + .tick-ui {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.activity-hint { color: var(--text-muted); font-weight: 700; font-size: 0.92rem; }
+
+/* Visual aids: mapa conceptual + mini gráfica */
+.visual-aids {
+  display: flex;
+  grid-template-columns: 2fr 420px;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+@media (max-width: 900px) {
+  .visual-aids { grid-template-columns: 1fr; }
+}
+
+/* Neutralizar el mapa conceptual (ya eliminado del HTML) para evitar estilos innecesarios */
+.concept-map,
+.concept-svg,
+.cm-node,
+.cm-connector,
+.cm-text,
+.cm-legend { display: none !important; }
+
+/* Estilos nuevos: tarjetas visuales (más legibles) */
+.visual-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .visual-cards { grid-template-columns: 1fr; }
+}
+
+.visual-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.vc-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-primary), #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+.vc-title { font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+.vc-desc { color: var(--text-muted); font-size: 0.95rem; margin: 0.15rem 0 0 0; }
+
+/* Aumentar legibilidad de las etiquetas de la mini‑gráfica */
+.bar-label { left: 0.9rem; font-size: 0.9rem; color: var(--text-primary); font-weight:700; }
+.bar-inner { transition: width 0.9s cubic-bezier(.2,.9,.2,1); }
+
+/* Relación entre puntos - área interactiva */
+.relation-section { margin-top: 1rem; }
+.interactive-wrapper { display:flex; flex-direction:column; gap:0.6rem; }
+.interactive-instructions { color: var(--text-muted); font-weight:700; font-size:0.95rem; }
+
+.interactive-area {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 0.6rem;
+  overflow: hidden;
+}
+
+.interactive-svg {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+  border-radius: 8px;
+  display:block;
+  touch-action: manipulation;
+}
+
+/* punto y etiqueta */
+.pt-circle {
+  fill: var(--accent-primary);
+  stroke: white;
+  stroke-width: 1.5;
+  r:6;
+  cursor: pointer;
+  transition: r 0.12s ease, transform 0.12s ease;
+}
+.pt-circle:hover { transform: translateY(-2px); }
+
+.pt-label {
+  font-size: 12px;
+  font-weight: 800;
+  text-anchor: start;
+  fill: var(--text-primary);
+  stroke: rgba(0,0,0,0.45);
+  stroke-width: 3;
+  paint-order: stroke;
+  pointer-events: none;
+}
+
+/* recta entre puntos */
+.pt-line {
+  stroke: var(--accent-primary);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  opacity: 0.95;
+}
+
+/* controles */
+.interactive-controls { display:flex; align-items:center; gap:1rem; margin-top:0.5rem; }
+.btn-small { padding:0.45rem 0.8rem; border-radius:8px; background:linear-gradient(135deg,var(--accent-primary),#3b82f6); color:#fff; border:none; font-weight:700; cursor:pointer; }
+.points-count { color: var(--text-muted); font-weight:700; }
+
+/* Responsivo */
+@media (max-width: 720px) {
+  .lesson-article { padding: 0.75rem; margin: 1rem; }
+  .lesson-title { font-size: 1.5rem; }
+  .lesson-meta { gap: 0.5rem; }
+  .definition-list li { font-size: 0.95rem; padding: 0.5rem; }
+  .interactive-svg { height: 240px; }
+  .pt-label { font-size:11px; }
+}
+
+/* Destacar la "🧠 Idea clave" */
+.idea {
+  display: block;
+  margin-top: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(16,185,129,0.06), rgba(59,130,246,0.03));
+  border-left: 6px solid var(--accent-primary);
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.12);
+}
+
+/* icono más grande al principio */
+.idea::before {
+  content: "🧠";
+  display: inline-block;
+  margin-right: 0.6rem;
+  font-size: 1.15rem;
+  vertical-align: middle;
+}
+
+/* texto importante en negrita */
+.idea strong {
+  color: var(--accent-primary);
+}
+
+/* pequeño ajuste responsivo */
+@media (max-width:720px) {
+  .idea { font-size: 0.95rem; padding: 0.7rem; }
+}
+
+/* Nuevos estilos para la figura de la recta */
+.line-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.line-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.line-svg .pt-label, .line-svg text {
+  font-weight: 900;
+  fill: var(--text-primary);
+  stroke: rgba(0,0,0,0.45);
+  stroke-width: 3;
+  paint-order: stroke;
+  font-size: 14px;
+}
+
+/* Asegurar buen contraste del marcador de flecha en modo claro/oscuro */
+.line-svg marker path { fill: var(--accent-primary); }
+
+/* pequeño ajuste responsivo */
+@media (max-width: 720px) {
+  .line-svg { max-width: 100%; padding: 8px; }
+  .line-svg text { font-size: 12px; }
+}
+
+/* Detalles de la recta (tipos relacionados + ejemplos) */
+.recta-details .definition-list li { background: rgba(255,255,255,0.015); padding:0.55rem 0.75rem; border-radius:8px; font-weight:700; color:var(--text-secondary); }
+
+/* Regla virtual - estilo */
+.ruler-svg {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+  display:block;
+}
+
+.ruler-point {
+  fill: var(--accent-secondary);
+  stroke: white;
+  stroke-width: 1.5;
+  r:6;
+  transition: transform 0.12s ease;
+}
+.ruler-point:hover { transform: translateY(-3px); }
+
+.ruler-line {
+  stroke: var(--accent-primary);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  opacity: 0.95;
+}
+
+/* Ajustes de la etiqueta y controles */
+.ruler-svg text { font-weight:900; font-size:13px; fill:var(--text-primary); stroke: rgba(0,0,0,0.35); stroke-width:2; paint-order: stroke; }
+
+/* Nota visual para imagen sugerida */
+.svg-caption { margin-top:0.6rem; font-size:0.9rem; color:var(--text-muted); }
+
+/* Nuevos estilos para la regla virtual y controles */
+.ruler-wrapper { display:flex; flex-direction:column; gap:0.6rem; margin-top:0.6rem; }
+.ruler-controls { display:flex; align-items:center; gap:0.8rem; margin-top:0.5rem; }
+.measure-display { color: var(--text-muted); font-weight:800; font-size:0.95rem; }
+
+/* reutiliza clases ya definidas .ruler-svg .ruler-point .ruler-line */
+.ruler-svg { width:100%; height:240px; background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); border-radius:8px; border:1px dashed var(--border-color); }
+.ruler-point { fill: var(--accent-secondary); stroke: white; stroke-width: 1.5; r:6; cursor:pointer; transition: transform 0.12s ease; }
+.ruler-line { stroke: var(--accent-primary); stroke-width: 2.8; stroke-linecap: round; opacity: 0.95; }
+/* botón pequeño ya existe .btn-small, si no, asegurar fallback */
+.btn-small { padding:0.45rem 0.8rem; border-radius:8px; background:linear-gradient(135deg,var(--accent-primary),#3b82f6); color:#fff; border:none; font-weight:700; cursor:pointer; }
+
+/* Estilos para los ejemplos de rectas */
+.line-examples { margin-top: 0.6rem; border-radius: 10px; padding: 0.6rem; background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); border: 1px solid rgba(255,255,255,0.02); }
+.line-examples-svg { width: 100%; height: 240px; display: block; background: linear-gradient(180deg, rgba(0,0,0,0.01), transparent); border-radius: 8px; }
+.line-examples .ex-line { stroke: var(--accent-primary); stroke-width: 3; stroke-linecap: round; }
+.line-examples .ex-line.secondary { stroke: var(--accent-secondary); opacity: 0.95; stroke-dasharray: 0; }
+.line-examples .ex-label { font-size: 13px; font-weight: 800; fill: var(--text-primary); paint-order: stroke; stroke: rgba(0,0,0,0.35); stroke-width: 3; }
+@media (max-width:720px) { .line-examples-svg { height: 200px; } }
+
+/* Estilos para Ejemplo de Plano */
+.plane-examples { margin-top: 0.6rem; padding: 0.6rem; border-radius:10px; background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); border:1px solid rgba(255,255,255,0.02); }
+.plane-examples-svg { width:100%; height:320px; display:block; border-radius:8px; background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); }
+.plane-shade { fill: linear-gradient; opacity:0.12; }
+.plane-rect { fill: var(--accent-primary); opacity:0.07; stroke: rgba(0,0,0,0.06); stroke-width:1; rx:8; }
+.plane-point { fill: var(--accent-primary); stroke: #fff; stroke-width:1.2; r:6; }
+.plane-line { stroke: var(--accent-primary); stroke-width:2.4; stroke-linecap:round; opacity:0.95; }
+.plane-label { font-size:13px; font-weight:800; fill:var(--text-primary); paint-order: stroke; stroke: rgba(0,0,0,0.35); stroke-width:3; }
+/* responsive */
+@media (max-width:720px) { .plane-examples-svg { height:220px; } .plane-label { font-size:11px; } }
+
+/* estilo para punto bloqueado en el plano interactivo */
+.plane-point.locked {
+  stroke: #111;
+  stroke-width: 1.8;
+  opacity: 0.98;
+  transform-origin: center;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnix - Química</title>
+    <link rel="stylesheet" href="quimica.css">
+    <script>
+      // Pre-aplica el modo claro antes de mostrar el body para evitar parpadeo y sincroniza con otras pestañas
+      (function() {
+        try {
+          var theme = localStorage.getItem("learnix-theme");
+          if (theme === "light") {
+            document.documentElement.classList.add("light-mode");
+          }
+        } catch(e){}
+        window.addEventListener("storage", function(e) {
+          if (e.key === "learnix-theme") {
+            if (e.newValue === "light") {
+              document.documentElement.classList.add("light-mode");
+            } else {
+              document.documentElement.classList.remove("light-mode");
+            }
+            var icon = document.querySelector(".theme-icon");
+            if (icon) icon.textContent = e.newValue === "light" ? "☀️" : "🌙";
+          }
+        });
+      })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <a href="index.html" class="back-btn">← Menú</a>
+            </div>
+            <div class="nav-center">
+                <div class="brand">
+                    <a href="index.html" class="logo-link">
+                        <img src="logo-learnix.png" alt="Learnix Logo" class="logo-img">
+                        <span class="brand-text">Learnix</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div class="coins">
+                    <img src="monedas.png" alt="Moneda" class="coin-icon">
+                    <span id="coinCount">0</span>
+                </div>
+                <div id="profileBtn" class="profile" aria-expanded="false" role="button" tabindex="0">
+                    <span class="avatar">👤</span>
+                    <div class="popup" role="menu" aria-hidden="true">
+                        <strong>Usuario</strong>
+                        <div class="progress">
+                            <div id="xpFill" class="progress-fill"></div>
+                        </div>
+                        <span class="xp-text">XP: <span id="xpValue">0</span>%</span>
+                        <a href="perfil.html">Ver perfil</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="main-title">Química</h1>
+                <p class="main-description">Descubre el fascinante mundo de los átomos, moléculas y reacciones químicas.</p>
+                
+                <div class="grid" id="chemistryGrid">
+                    <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Learnix. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="quimica.js"></script>
+</body>
+</html>

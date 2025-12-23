@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnix - Aprender jugando</title>
+    <link rel="icon" type="image/png" href="logo-learnix.png">
+    <link rel="stylesheet" href="menu.css">
+    <script>
+      (function(){try{var t=localStorage.getItem("learnix-theme")||"dark";document.documentElement.dataset.theme=t}catch(e){}window.addEventListener("storage",e=>{if(e.key==="learnix-theme")document.documentElement.dataset.theme=e.newValue||"dark"})})();
+    </script>
+</head>
+<body>
+    <div class="particles-container" id="particles"></div>
+
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="brand">
+                     <img src="logo-learnix.png" alt="Learnix Logo" class="logo-img">
+                    <span class="brand-text">Learnix</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" data-icon="🌙">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div class="coins">
+                     <img src="monedas.png" alt="Moneda" class="coin-icon">
+                    <span id="coinCount" data-value="0">0</span>
+                </div>
+                <div id="profileBtn" class="profile" aria-expanded="false" role="button" tabindex="0">
+                    <span class="avatar">👤</span>
+                    <div class="popup" role="menu" aria-hidden="true">
+                        <strong>Usuario</strong>
+                        <div class="progress">
+                            <div id="xpFill" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="xp-text">XP: <span id="xpValue" data-value="0">0</span>%</span>
+                        <a href="perfil.html">Ver perfil</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Aprender nunca fue tan divertido</h1>
+                <p class="hero-description">Explora, jugá, resolvé y entendé con Learnix, tu laboratorio virtual del conocimiento.</p>
+                <button class="hero-btn" id="exploreBtn">¡Explorar ahora!</button>
+            </div>
+        </section>
+        <section class="subjects-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon">🎮</div>
+                    <h2 class="section-title">Elegí tu Aventura</h2>
+                    <p class="section-description">Cada materia es una nueva aventura épica llena de desafíos emocionantes y recompensas increíbles</p>
+                </div>
+
+                <div class="subjects-grid" id="subjectsGrid">
+                    <!-- Cartas generadas dinámicamente con data attributes -->
+                    <div class="subject-card" data-id="matematica" data-color="#3b82f6" data-link="matematicas.html" style="--card-accent: #3b82f6">
+                        <div class="subject-icon">🧮</div>
+                        <h3 class="subject-title">Matemática</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="fisica" data-color="#10b981" data-link="fisica.html" style="--card-accent: #10b981">
+                        <div class="subject-icon">⚛️</div>
+                        <h3 class="subject-title">Física</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="quimica" data-color="#06b6d4" data-link="quimica.html" style="--card-accent: #06b6d4">
+                        <div class="subject-icon">🧪</div>
+                        <h3 class="subject-title">Química</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="biologia" data-color="#10b981" data-link="biologia.html" style="--card-accent: #10b981">
+                        <div class="subject-icon">🌱</div>
+                        <h3 class="subject-title">Biología</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="tecnologia" data-color="#6366f1" data-link="tecnologia.html" style="--card-accent: #6366f1">
+                        <div class="subject-icon">💻</div>
+                        <h3 class="subject-title">Tecnología</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="lengua" data-color="#8b5cf6" data-link="lengua.html" style="--card-accent: #8b5cf6">
+                        <div class="subject-icon">📚</div>
+                        <h3 class="subject-title">Lengua</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="ingles" data-color="#06b6d4" data-link="ingles.html" style="--card-accent: #06b6d4">
+                        <div class="subject-icon">🌍</div>
+                        <h3 class="subject-title">Inglés</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="ajedrez" data-color="#64748b" data-link="ajedrez.html" style="--card-accent: #64748b">
+                        <div class="subject-icon">♟️</div>
+                        <h3 class="subject-title">Ajedrez</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card" data-id="programacion" data-color="#f59e0b" data-link="programacion.html" style="--card-accent: #f59e0b">
+                        <div class="subject-icon">💾</div>
+                        <h3 class="subject-title">Programación</h3>
+                        <p class="subject-description">Lecciones y juegos</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: <span class="progress-value">0</span>%</span></div>
+                    </div>
+                    <div class="subject-card coming-soon" data-id="proximamente" data-color="#f59e0b" style="--card-accent: #f59e0b">
+                        <div class="subject-icon">⏳</div>
+                        <h3 class="subject-title">Próximamente</h3>
+                        <p class="subject-description">Más materias increíbles en camino...</p>
+                        <div class="subject-progress"><span class="progress-text">Progreso: ???</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+</body>
+</html>

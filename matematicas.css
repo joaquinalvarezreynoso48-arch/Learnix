@@ -1,0 +1,600 @@
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #334155;
+  --border-color: #475569;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  --shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+  --shadow-hover: 0 20px 60px rgba(59, 130, 246, 0.25);
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.light-mode {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #f1f5f9;
+  --border-color: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+html.light-mode header {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-primary);
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.back-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  transform: translateX(-2px);
+}
+
+/* Checkbox invisible para hamburguesa */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+/* Botón hamburguesa estilizado */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  padding: 6px;
+  background: none;
+  border: none;
+}
+
+.hamburger-btn span {
+  width: 24px;
+  height: 3px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.menu-toggle-checkbox:checked ~ .hamburger-btn span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle-checkbox:checked ~ .hamburger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle-checkbox:checked ~ .hamburger-btn span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Menú móvil oculto por defecto */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  padding: 0.75rem;
+  gap: 0.75rem;
+  flex-direction: column;
+  z-index: 1000;
+  border-radius: 0 0 0 var(--radius);
+}
+
+/* Mostrar menú cuando checkbox está activado */
+.menu-toggle-checkbox:checked ~ .mobile-menu {
+  display: flex;
+}
+
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.mobile-profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.mobile-profile .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--bg-card);
+  border-radius: 50%;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.mobile-profile:hover .avatar {
+  background: var(--accent-primary);
+}
+
+.mobile-profile .popup {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  width: 220px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  font-size: 0.875rem;
+}
+
+.mobile-profile:hover .popup {
+  display: block;
+  animation: fadeInUp 0.3s ease;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.25rem;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-card);
+  transform: scale(1.1);
+}
+
+/* Animación de giro para botón de tema — igual que en menu */
+.theme-toggle.rotating {
+  animation: rotate 0.6s ease-in-out;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.coins {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.coin-icon,
+.coin-icon img {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* Si por alguna razón queda un span con emoji, reducir tamaño de fuente para evitar desalineado */
+.coin-icon { font-size: 1rem; }
+
+.profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-card);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  transition: var(--transition);
+}
+
+.profile:hover .avatar {
+  background: var(--accent-primary);
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem;
+  width: 250px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+.profile[aria-expanded="true"] .popup {
+  display: block;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.progress {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), #8b5cf6);
+  transition: width 0.5s ease;
+}
+
+.xp-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.popup a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.popup a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  padding: 3rem 2rem 5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.main-description {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Evitar subrayado y forzar que el enlace cubra toda la tarjeta */
+.grid > a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Asegurar que títulos dentro de la tarjeta no se subrayen */
+.grid > a .card h3,
+.card h3 {
+  text-decoration: none;
+}
+
+/* Mantener comportamiento al pasar el cursor */
+.grid > a:hover { text-decoration: none; }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), #8b5cf6);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-primary);
+}
+
+.card:nth-child(1) {
+  animation-delay: 0ms;
+}
+.card:nth-child(2) {
+  animation-delay: 100ms;
+}
+.card:nth-child(3) {
+  animation-delay: 200ms;
+}
+.card:nth-child(4) {
+  animation-delay: 300ms;
+}
+.card:nth-child(5) {
+  animation-delay: 400ms;
+}
+.card:nth-child(6) {
+  animation-delay: 500ms;
+}
+.card:nth-child(7) {
+  animation-delay: 600ms;
+}
+.card:nth-child(8) {
+  animation-delay: 700ms;
+}
+.card:nth-child(9) {
+  animation-delay: 800ms;
+}
+.card:nth-child(10) {
+  animation-delay: 900ms;
+}
+.card:nth-child(11) {
+  animation-delay: 1000ms;
+}
+.card:nth-child(12) {
+  animation-delay: 1100ms;
+}
+.card:nth-child(13) {
+  animation-delay: 1200ms;
+}
+.card:nth-child(14) {
+  animation-delay: 1300ms;
+}
+.card:nth-child(15) {
+  animation-delay: 1400ms;
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.card:hover .card-icon {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.card:hover h3 {
+  color: var(--accent-primary);
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-lessons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Estilos responsive para móviles */
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  /* Mostrar hamburguesa en móviles */
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Ocultar nav-right en móviles */
+  .nav-right {
+    display: none;
+  }
+
+  .section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    font-style: none;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .mobile-menu-item {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .main-description {
+    font-size: 1rem;
+  }
+
+  .card-lessons {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+}

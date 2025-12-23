@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometría Básica - Learnix</title>
+    <link rel="stylesheet" href="geometria-basica.css">
+    <link rel="icon" type="image/png" href="logo-learnix.png">
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem("learnix-theme") || "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+          if (theme === "light") document.documentElement.classList.add("light-mode");
+          else document.documentElement.classList.remove("light-mode");
+          var icons = document.querySelectorAll(".theme-icon");
+          icons.forEach(function(ic){ ic.textContent = theme === "light" ? "☀️" : "🌙"; });
+        } catch (e){}
+        window.addEventListener("storage", function(e) {
+          if (e.key === "learnix-theme") {
+            var newTheme = e.newValue || "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            if (newTheme === "light") document.documentElement.classList.add("light-mode");
+            else document.documentElement.classList.remove("light-mode");
+            var icons = document.querySelectorAll(".theme-icon");
+            icons.forEach(function(ic){ ic.textContent = newTheme === "light" ? "☀️" : "🌙"; });
+          }
+        });
+      })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="matematicas.html" class="back-btn">
+                ← Volver a Matemáticas
+            </a>
+            
+            <div class="brand">
+               <img src="logo-learnix.png" alt="Learnix Logo" class="logo-img">
+                <span class="brand-text">Learnix</span>
+            </div>
+            
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                
+                <div class="coins">
+                    <img src="monedas.png" alt="Moneda" class="coin-icon">
+                    <span id="coinCount">150</span>
+                </div>
+                
+                <div class="profile" id="profileBtn" aria-expanded="false">
+                    <div class="avatar">👤</div>
+                    <div class="popup">
+                        <span class="xp-text">XP: <span id="xpValue">60</span>/100</span>
+                        <div class="progress">
+                            <div class="progress-fill" id="xpFill" style="width: 60%"></div>
+                        </div>
+                        <a href="#perfil">Ver perfil completo</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="geometric-bg">
+            <div class="shape triangle"></div>
+            <div class="shape circle"></div>
+            <div class="shape square"></div>
+            <div class="shape pentagon"></div>
+            <div class="shape hexagon"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-icon">📐</div>
+            <h1 class="hero-title">Geometría Básica</h1>
+            <p class="hero-description">
+                Explora el fascinante mundo de las formas, ángulos y figuras geométricas
+                a través de lecciones interactivas y juegos educativos.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="completedLessons">0</span>
+                    <span class="stat-label">Lecciones Completadas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="totalPoints">0</span>
+                    <span class="stat-label">Puntos Ganados</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="overallProgress">0</span>
+                    <span class="stat-label">% Progreso</span>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-card">
+                <h3>Tu Progreso en Geometría Básica</h3>
+                <div class="progress-bar-large">
+                    <div class="progress-fill-large" id="progressFillLarge" style="width:0%"></div>
+                </div>
+                <div class="progress-info">
+                    <span id="progressText">0% completado</span>
+                    <span id="nextLesson">Siguiente: Puntos y Líneas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de progreso global eliminada: el progreso se muestra únicamente en la tarjeta "Puntos y Líneas" -->
+
+    <section class="lessons-section">
+        <div class="container">
+            <h2 class="section-title">📚 Lecciones de Geometría</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card available" data-lesson="puntos-lineas">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">📍</div>
+                        <div class="lesson-info">
+                            <h3>Puntos y Líneas</h3>
+                            <div class="lesson-duration">⏱️ 45 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Aprende los conceptos fundamentales: puntos, líneas, segmentos y rayos. Descubre cómo estos elementos básicos forman la base de toda la geometría.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Puntos</span>
+                            <span class="concept-tag">Líneas</span>
+                            <span class="concept-tag">Segmentos</span>
+                            <span class="concept-tag">Rayos</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <!-- Enlace directo a la página de la lección dentro de la carpeta geometria -->
+                    <a class="lesson-cta" href="geometria/puntosylineas.html" aria-label="Ir a Puntos y Líneas">Abrir lección</a>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="angulos">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">📐</div>
+                        <div class="lesson-info">
+                            <h3>Ángulos</h3>
+                            <div class="lesson-duration">⏱️ 20 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Explora los diferentes tipos de ángulos: agudos, rectos, obtusos y llanos. Aprende a medirlos y clasificarlos correctamente.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Ángulos agudos</span>
+                            <span class="concept-tag">Ángulos rectos</span>
+                            <span class="concept-tag">Ángulos obtusos</span>
+                            <span class="concept-tag">Medición</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="triangulos">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">🔺</div>
+                        <div class="lesson-info">
+                            <h3>Triángulos</h3>
+                            <div class="lesson-duration">⏱️ 25 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Descubre la clasificación y propiedades de los triángulos. Aprende sobre triángulos equiláteros, isósceles y escalenos.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Equiláteros</span>
+                            <span class="concept-tag">Isósceles</span>
+                            <span class="concept-tag">Escalenos</span>
+                            <span class="concept-tag">Propiedades</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="cuadrilateros">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">⬜</div>
+                        <div class="lesson-info">
+                            <h3>Cuadriláteros</h3>
+                            <div class="lesson-duration">⏱️ 30 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Estudia cuadrados, rectángulos, rombos y paralelogramos. Comprende sus características únicas y propiedades especiales.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Cuadrados</span>
+                            <span class="concept-tag">Rectángulos</span>
+                            <span class="concept-tag">Rombos</span>
+                            <span class="concept-tag">Paralelogramos</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="circulos">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">⭕</div>
+                        <div class="lesson-info">
+                            <h3>Círculos</h3>
+                            <div class="lesson-duration">⏱️ 20 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Domina los conceptos de radio, diámetro, circunferencia y área del círculo. Aprende las fórmulas esenciales.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Radio</span>
+                            <span class="concept-tag">Diámetro</span>
+                            <span class="concept-tag">Circunferencia</span>
+                            <span class="concept-tag">Área</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="perimetros">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">📏</div>
+                        <div class="lesson-info">
+                            <h3>Perímetros</h3>
+                            <div class="lesson-duration">⏱️ 25 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Aprende a calcular perímetros de diferentes figuras geométricas. Domina las fórmulas y técnicas de cálculo.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Fórmulas</span>
+                            <span class="concept-tag">Cálculos</span>
+                            <span class="concept-tag">Figuras planas</span>
+                            <span class="concept-tag">Medición</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="areas">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">📊</div>
+                        <div class="lesson-info">
+                            <h3>Áreas</h3>
+                            <div class="lesson-duration">⏱️ 30 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Calcula áreas de figuras planas básicas. Comprende las fórmulas fundamentales y su aplicación práctica.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Área cuadrado</span>
+                            <span class="concept-tag">Área rectángulo</span>
+                            <span class="concept-tag">Área triángulo</span>
+                            <span class="concept-tag">Área círculo</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+
+                <div class="lesson-card available" data-lesson="simetria">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">⭐</div>
+                        <div class="lesson-info">
+                            <h3>Simetría</h3>
+                            <div class="lesson-duration">⏱️ 20 min</div>
+                        </div>
+                    </div>
+                    <p class="lesson-description">Explora la simetría axial y central en figuras geométricas. Identifica ejes de simetría y patrones.</p>
+                    <div class="lesson-details">
+                        <div class="lesson-concepts">
+                            <span class="concept-tag">Simetría axial</span>
+                            <span class="concept-tag">Simetría central</span>
+                            <span class="concept-tag">Ejes</span>
+                            <span class="concept-tag">Patrones</span>
+                        </div>
+                        <div class="lesson-difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lesson-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill-lesson" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                    <div class="lesson-status status-available">Disponible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section">
+        <div class="container">
+            <h2 class="section-title">📚 Temas de Geometría</h2>
+            <div class="games-grid">
+                <div class="game-card" data-game="memory">
+                    <div class="game-icon">📍</div>
+                    <h3>Puntos, rectas y planos</h3>
+                    <p>Las ideas fundamentales de la geometría.
+Base para entender todo lo demás.</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <span class="stat-text">Tiempo: 45m</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-text">Completado: 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text">Puntos: 120</span>
+                        </div>
+                    </div>
+                    <div class="game-rewards">
+                        <span class="reward-coin"><img src="monedas.png" alt="Moneda" />+15</span>
+                        <span class="reward-xp">⚡ +25 XP</span>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="builder">
+                    <div class="game-icon">📐</div>
+                    <h3>Ángulos</h3>
+                    <p>Qué son, cómo se miden y cómo se clasifican.
+Acá entra todo lo de agudos, rectos, obtusos, etc.</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">🏆</span>
+                            <span class="stat-text">Completadas: 0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-text">Precisión: 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text">Puntos: 0</span>
+                        </div>
+                    </div>
+                    <div class="game-rewards">
+                        <span class="reward-coin"><img src="monedas.png" alt="Moneda" />+25</span>
+                        <span class="reward-xp">⚡ +40 XP</span>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="angles">
+                    <div class="game-icon">🔺</div>
+                    <h3>Triángulos</h3>
+                    <p>Tipos de triángulos según lados y ángulos.
+Propiedades básicas y ejemplos visuales.</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">🏆</span>
+                            <span class="stat-text">Récord: 0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-text">Precisión: 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text">Puntos: 0</span>
+                        </div>
+                    </div>
+                    <div class="game-rewards">
+                        <span class="reward-coin"><img src="monedas.png" alt="Moneda" />+20</span>
+                        <span class="reward-xp">⚡ +35 XP</span>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="perimeter">
+                    <div class="game-icon">⬛</div>
+                    <h3>Cuadriláteros</h3>
+                    <p>Cuadrado, rectángulo, rombo y trapecio.
+Comparaciones simples entre ellos.</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">🏆</span>
+                            <span class="stat-text">Mejor: 0s</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-text">Precisión: 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text">Puntos: 0</span>
+                        </div>
+                    </div>
+                    <div class="game-rewards">
+                        <span class="reward-coin"><img src="monedas.png" alt="Moneda" />+35</span>
+                        <span class="reward-xp">⚡ +50 XP</span>
+                    </div>
+                </div>
+
+                <div class="game-card" data-game="shape-puzzle">
+                    <div class="game-icon">⚪</div>
+                    <h3>Polígonos y circunferencia</h3>
+                    <p>Figuras de varios lados + círculo y circunferencia.
+Sirve para entender formas cerradas en general.</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">🏆</span>
+                            <span class="stat-text">Nivel: 0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-text">Completado: 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text">Puntos: 0</span>
+                        </div>
+                    </div>
+                    <div class="game-rewards">
+                        <span class="reward-coin"><img src="monedas.png" alt="Moneda" />+30</span>
+                        <span class="reward-xp">⚡ +45 XP</span>
+                    </div>
+                </div>
+
+                <div class="game-card" data-game="geometry-quiz">
+                    <div class="game-icon">📏</div>
+                    <h3>Perímetro y área</h3>
+                    <p>Cómo medir figuras y calcular su tamaño.
+Aplicación práctica de todo lo anterior.</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">🏆</span>
+                            <span class="stat-text">Racha: 0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-text">Aciertos: 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-text">Puntos: 0</span>
+                        </div>
+                    </div>
+                    <div class="game-rewards">
+                        <span class="reward-coin"><img src="monedas.png" alt="Moneda" />+18</span>
+                        <span class="reward-xp">⚡ +30 XP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">🛠️ Herramientas Interactivas</h2>
+            <div class="tools-grid">
+                <div class="tool-card" id="calculator">
+                    <div class="tool-icon">🧮</div>
+                    <h3>Calculadora Geométrica</h3>
+                    <p>Calcula perímetros, áreas y más</p>
+                </div>
+                
+                <div class="tool-card" id="protractor">
+                    <div class="tool-icon">📐</div>
+                    <h3>Transportador Virtual</h3>
+                    <p>Mide y dibuja ángulos precisos</p>
+                </div>
+                
+                <div class="tool-card" id="compass">
+                    <div class="tool-icon">🧭</div>
+                    <h3>Compás Digital</h3>
+                    <p>Dibuja círculos y arcos perfectos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <div class="memory-modal__header">
+                <button class="memory-modal__close close-btn" id="closeGameModal" title="Cerrar juego">&times;</button>
+            </div>
+            <div class="modal-body" id="gameBody">
+                <div id="gameContent-memoria" style="display:none">
+                    <div class="game-area">
+                        <div class="memory-modal__desc">
+                          Haz clic en las cartas para encontrar las parejas.
+                        </div>
+                        <div class="memory__best">
+                          <span>Mejor tiempo: <span id="memoryBestTime">--</span></span>
+                          <span>Mejor precisión: <span id="memoryBestPrecision">--</span></span>
+                        </div>
+                        <div class="memory__stats">
+                          <span>⏱️ <span id="memoryTimer">0s</span></span>
+                          <span>Movimientos: <span id="memoryMoves">0</span></span>
+                          <span>Precisión: <span id="memoryPrecision">100%</span></span>
+                        </div>
+                        <div id="memoryBoard" class="memory__board"></div>
+                        <button class="memory__restart" id="memoryRestart">🔄 Reiniciar</button>
+                    </div>
+                </div>
+                <div id="gameContent-constructor" style="display:none">
+                    <div class="game-area">
+                        <div class="game-info">
+                            <div class="game-target">Construye: <span id="targetShape">Triángulo</span></div>
+                            <div class="game-score">Puntuación: <span id="builderScore">0</span></div>
+                        </div>
+                        <canvas id="builderCanvas" width="400" height="300"></canvas>
+                        <div class="game-tools">
+                            <button class="tool-btn active" data-tool="line">Línea</button>
+                            <button class="tool-btn" data-tool="circle">Círculo</button>
+                            <button class="tool-btn" data-tool="erase">Borrar</button>
+                            <button class="btn btn-primary" onclick="checkShape()">Verificar</button>
+                            <button class="btn btn-secondary" onclick="clearCanvas()">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="gameContent-quiz" style="display:none">
+                    <div class="game-area">
+                        <div class="quiz-info">
+                            <div class="quiz-progress">Pregunta <span id="quizCurrent">1</span> de <span id="quizTotal">10</span></div>
+                            <div class="quiz-score">Puntuación: <span id="quizScore">0</span></div>
+                            <div class="quiz-timer">Tiempo: <span id="quizTimer">30</span>s</div>
+                        </div>
+                        <div class="quiz-question">
+                            <h4 id="questionText">¿Cuántos lados tiene un triángulo?</h4>
+                            <div class="quiz-image" id="questionImage"></div>
+                        </div>
+                        <div class="quiz-options" id="quizOptions"></div>
+                        <div class="quiz-controls">
+                            <button class="btn btn-primary" id="nextQuestion" onclick="nextQuestion()" style="display:none;">Siguiente</button>
+                            <button class="btn btn-secondary" onclick="closeGameModal()">Salir</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="gameContent-carrera" style="display:none">
+                    <div class="game-area">
+                        <div class="race-info">
+                            <div class="race-timer">Tiempo: <span id="raceTimer">60</span>s</div>
+                            <div class="race-score">Puntuación: <span id="raceScore">0</span></div>
+                            <div class="race-level">Nivel: <span id="raceLevel">1</span></div>
+                        </div>
+                        <div class="race-problem">
+                            <h4>Calcula el perímetro:</h4>
+                            <div class="shape-display" id="raceShape"></div>
+                            <div class="shape-info" id="shapeInfo"></div>
+                        </div>
+                        <div class="race-input">
+                            <input type="number" id="perimeterAnswer" placeholder="Respuesta" />
+                            <button class="btn btn-primary" onclick="checkPerimeter()">Verificar</button>
+                        </div>
+                        <div class="race-controls">
+                            <button class="btn btn-primary" onclick="startRaceGame()">Comenzar Carrera</button>
+                            <button class="btn btn-secondary" onclick="closeGameModal()">Salir</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="gameContent-puzzle" style="display:none">
+                    <div class="game-area">
+                        <div class="puzzle-info">
+                            <div class="puzzle-level">Nivel: <span id="puzzleCurrentLevel">1</span></div>
+                            <div class="puzzle-score">Puntuación: <span id="puzzleCurrentScore">0</span></div>
+                            <div class="puzzle-hints">Pistas: <span id="puzzleHints">3</span></div>
+                        </div>
+                        <div class="puzzle-board">
+                            <canvas id="puzzleCanvas" width="400" height="300"></canvas>
+                        </div>
+                        <div class="puzzle-question">
+                            <h4 id="puzzleQuestion">¿Cuál es la medida del ángulo marcado?</h4>
+                            <input type="number" id="angleAnswer" placeholder="Grados" />
+                            <button class="btn btn-primary" onclick="checkAngle()">Verificar</button>
+                        </div>
+                        <div class="puzzle-controls">
+                            <button class="btn btn-secondary" onclick="useHint()">Usar Pista</button>
+                            <button class="btn btn-primary" onclick="nextPuzzle()">Siguiente</button>
+                            <button class="btn btn-secondary" onclick="closeGameModal()">Salir</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="gameContent-batalla" style="display:none">
+                    <div class="game-area">
+                        <div class="battle-info">
+                            <div class="battle-health">Vida: <span id="playerHealth">100</span>/100</div>
+                            <div class="battle-score">Puntuación: <span id="battleCurrentScore">0</span></div>
+                            <div class="battle-round">Ronda: <span id="battleRound">1</span></div>
+                        </div>
+                        <div class="battle-arena">
+                            <div class="battle-question">
+                                <h4 id="battleQuestion">Identifica esta forma:</h4>
+                                <div class="battle-shape" id="battleShape"></div>
+                            </div>
+                            <div class="battle-timer">
+                                <div class="timer-bar">
+                                    <div class="timer-fill" id="battleTimerFill"></div>
+                                </div>
+                                <span id="battleTimer">10</span>s
+                            </div>
+                        </div>
+                        <div class="battle-options" id="battleOptions"></div>
+                        <div class="battle-controls">
+                            <button class="btn btn-primary" onclick="startBattleGame()">Comenzar Batalla</button>
+                            <button class="btn btn-secondary" onclick="closeGameModal()">Salir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="toolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="toolTitle">Herramienta</h2>
+                <button class="close-btn" id="closeToolModal">&times;</button>
+            </div>
+            <div class="modal-body" id="toolBody">
+                 Contenido de la herramienta se cargará aquí 
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="lessonModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="lessonTitle">Lección</h2>
+                <button class="close-btn" id="closeLessonModal">&times;</button>
+            </div>
+            <div class="modal-body" id="lessonBody">
+                <!-- Contenido de lecciones estático para los tipos definidos en JS -->
+                <div id="lessonContent-puntos-lineas" style="display:none">
+                    <div class="lesson-detail">
+                        <h4>Conceptos Fundamentales</h4>
+                        <div class="concept-section">
+                            <h5>🔸 Punto</h5>
+                            <p>Un punto es una posición exacta en el espacio. No tiene dimensiones (ni largo, ni ancho, ni alto). Se representa con una letra mayúscula.</p>
+                            <div class="example">Ejemplo: Punto A, Punto B</div>
+                        </div>
+                        <div class="concept-section">
+                            <h5>📏 Línea</h5>
+                            <p>Una línea es una sucesión infinita de puntos que se extiende en ambas direcciones sin fin. Tiene una sola dimensión: longitud.</p>
+                            <div class="example">Ejemplo: Línea AB (se extiende infinitamente)</div>
+                        </div>
+                        <div class="concept-section">
+                            <h5>📐 Segmento</h5>
+                            <p>Un segmento es una parte de una línea que tiene dos puntos extremos. Tiene longitud finita y se puede medir.</p>
+                            <div class="example">Ejemplo: Segmento AB (de A hasta B)</div>
+                        </div>
+                        <div class="concept-section">
+                            <h5>➡️ Rayo</h5>
+                            <p>Un rayo tiene un punto de inicio y se extiende infinitamente en una dirección.</p>
+                            <div class="example">Ejemplo: Rayo AB (comienza en A, pasa por B y continúa)</div>
+                        </div>
+                        <div class="activity-section">
+                            <h4>Actividad Práctica</h4>
+                            <p>Identifica los elementos en tu entorno:</p>
+                            <ul>
+                                <li>Puntos: esquinas de una mesa, extremos de un lápiz</li>
+                                <li>Líneas: horizonte, cables eléctricos</li>
+                                <li>Segmentos: lados de un libro, regla</li>
+                                <li>Rayos: luz de una linterna, rayo de sol</li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="completeLesson('puntos-lineas', 10)">Completar Lección</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="lessonContent-angulos" style="display:none">
+                    <div class="lesson-detail">
+                        <h4>Tipos de Ángulos</h4>
+                        <div class="concept-section">
+                            <h5>📐 Ángulo Agudo</h5>
+                            <p>Mide menos de 90°. Es "puntiagudo" como la punta de un lápiz.</p>
+                            <div class="example">Ejemplos: 30°, 45°, 60°</div>
+                        </div>
+                        <div class="concept-section">
+                            <h5>⬜ Ángulo Recto</h5>
+                            <p>Mide exactamente 90°. Forma una esquina perfecta como la de un cuadrado.</p>
+                            <div class="example">Ejemplo: esquinas de una ventana, libro</div>
+                        </div>
+                        <div class="concept-section">
+                            <h5>📏 Ángulo Obtuso</h5>
+                            <p>Mide más de 90° pero menos de 180°. Es "abierto" como una puerta entreabierta.</p>
+                            <div class="example">Ejemplos: 120°, 135°, 150°</div>
+                        </div>
+                        <div class="concept-section">
+                            <h5>↔️ Ángulo Llano</h5>
+                            <p>Mide exactamente 180°. Forma una línea recta.</p>
+                            <div class="example">Ejemplo: una regla, el horizonte</div>
+                        </div>
+                        <div class="activity-section">
+                            <h4>Medición de Ángulos</h4>
+                            <p>Los ángulos se miden en grados (°) usando un transportador:</p>
+                            <ul>
+                                <li>Coloca el centro del transportador en el vértice del ángulo</li>
+                                <li>Alinea una línea con el 0°</li>
+                                <li>Lee donde cruza la otra línea</li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="completeLesson('angulos', 15)">Completar Lección</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ...otros contenidos de lección según el JS, usando el mismo patrón... -->
+            </div>
+        </div>
+    </div>
+
+    <script src="geometria-basica.js"></script>
+</body>
+</html>

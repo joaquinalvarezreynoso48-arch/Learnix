@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Puntos y Líneas — Geometría — Learnix</title>
+	<link rel="icon" href="../logo-learnix.png" type="image/png">
+	<link rel="stylesheet" href="../geometria-basica.css">
+	<link rel="stylesheet" href="puntosylineas.css">
+	<!-- Preload externo para aplicar tema antes de que el CSS pinte -->
+	<script src="puntosylineas-preload.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="nav">
+			<a href="../geometria-basica.html" class="back-btn">← Volver a Geometría Básica</a>
+
+			<div class="brand">
+				<img src="../logo-learnix.png" alt="Learnix" class="logo-img">
+				<span class="brand-text">Learnix</span>
+			</div>
+
+			<div class="nav-right">
+				<button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+					<span class="theme-icon">🌙</span>
+				</button>
+
+				<div class="coins">
+					<img src="../monedas.png" alt="Monedas" class="coin-icon">
+					<span id="coinCount">0</span>
+				</div>
+
+				<div id="profileBtn" class="profile" aria-expanded="false">
+					<span class="avatar">👤</span>
+					<div class="popup">
+						<strong>Usuario</strong>
+						<div class="progress"><div id="xpFill" class="progress-fill" style="width:0%"></div></div>
+						<span class="xp-text">XP: <span id="xpValue">0</span>%</span>
+						<a href="#perfil">Ver perfil</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main class="section">
+		<div class="container">
+			<article class="lesson-article">
+
+				<section class="lesson-section">
+					<h2>Introducción conceptual</h2>
+					<p class="lead">Antes de hablar de figuras, áreas o ángulos, la geometría necesita ideas básicas que no se definen por otras más simples. Estas ideas se llaman <strong>conceptos primitivos</strong>: punto, recta y plano.</p>
+					<div class="callout">
+						<strong>Importante:</strong> la geometría no empieza midiendo, empieza pensando el espacio.
+					</div>
+				</section>
+
+				<section class="lesson-section">
+					<h2>El punto</h2>
+					<p>Un <strong>punto</strong> representa una posición exacta en el plano o en el espacio. En geometría se dibuja como un pequeño marcador, pero conceptualmente no tiene dimensiones (ni largo, ni ancho, ni alto).</p>
+
+					<!-- NUEVO: ¿Qué es un punto? -->
+					<div class="what-is-point">
+						<h3>¿Qué es un punto?</h3>
+						<p>Un punto indica una posición en el espacio, pero:</p>
+						<ul class="definition-list">
+							<li>no tiene tamaño</li>
+							<li>no tiene forma</li>
+							<li>no ocupa espacio</li>
+						</ul>
+						<p>Aunque lo dibujamos como un pequeño círculo, eso es solo una representación.</p>
+
+						<h4>Ejemplo</h4>
+						<ul class="example-list">
+							<li>La punta de un lápiz tocando el papel</li>
+							<li>Una estrella vista desde muy lejos</li>
+							<li>Un lugar exacto en un mapa</li>
+						</ul>
+
+						<h4>Notación</h4>
+						<p>En geometría, los puntos se nombran con letras mayúsculas:</p>
+						<ul class="definition-list">
+							<li>Punto A</li>
+							<li>Punto B</li>
+							<li>Punto C</li>
+						</ul>
+					</div>
+					<!-- FIN NUEVO -->
+
+					<figure class="point-figure">
+						<img src="puntos.png" alt="Ilustración: punto A en un plano" class="point-image">
+						<figcaption>Figura 1. Representación típica de un punto (Punto A, B y C).</figcaption>
+					</figure>
+
+					<div class="info-grid">
+						<div>
+							<h4>Propiedades básicas</h4>
+							<ul class="definition-list">
+								<li><strong>No tiene tamaño.</strong> Es una ubicación, no una forma.</li>
+								<li><strong>No tiene forma.</strong> Se representa por convención.</li>
+								<li><strong>No ocupa espacio.</strong> No "rellena" área ni volumen.</li>
+							</ul>
+						</div>
+						<div>
+							<h4>Notación y uso</h4>
+							<p>Se nombra con mayúsculas: <em>A, B, P</em>. Para indicar un punto se escribe simplemente <strong>P</strong> o <strong>P(A)</strong> en contextos.</p>
+						</div>
+					</div>
+
+					<div class="svg-example" aria-hidden="true">
+						<svg class="point-svg" width="220" height="120" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg" role="img">
+							<rect x="0" y="0" width="220" height="120" fill="none"/>
+							<line x1="20" y1="100" x2="200" y2="100" stroke="var(--text-muted)" stroke-width="1"/>
+							<line x1="20" y1="100" x2="20" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+							<circle cx="110" cy="60" r="4.5" fill="var(--accent-primary)"/>
+							<text x="116" y="64" font-size="12" fill="var(--text-primary)">A</text>
+							<text x="22" y="16" font-size="11" fill="var(--text-muted)">eje Y</text>
+							<text x="180" y="116" font-size="11" fill="var(--text-muted)">eje X</text>
+						</svg>
+						<p class="svg-caption">Diagrama: Punto A en coordenadas aproximadas.</p>
+					</div>
+
+					<!-- REEMPLAZADO: tarjetas visuales y mini‑gráfica (mapa interactivo eliminado) -->
+					<section class="visual-aids">
+						<div class="visual-cards" aria-hidden="false" title="Resumen visual: ejemplos de punto">
+							<article class="visual-card">
+								<div class="vc-icon">✏️</div>
+								<h4 class="vc-title">Punta del lápiz</h4>
+								<p class="vc-desc">Representa un punto por contacto físico: pequeño y preciso.</p>
+							</article>
+
+							<article class="visual-card">
+								<div class="vc-icon">🌟</div>
+								<h4 class="vc-title">Estrella distante</h4>
+								<p class="vc-desc">Desde lejos una estrella se ve como un punto luminoso.</p>
+							</article>
+
+							<article class="visual-card">
+								<div class="vc-icon">📍</div>
+								<h4 class="vc-title">Ubicación en mapa</h4>
+								<p class="vc-desc">Coordenadas concretas para señalar lugares exactos.</p>
+							</article>
+						</div>
+					</section>
+
+					<section class="subsection">
+						<h4>Coordenadas (introducción)</h4>
+						<p>En un sistema cartesiano cada punto se identifica por un par (x, y). Ejemplo: <strong>A(3, 2)</strong> indica que desde el origen nos movemos 3 unidades en X y 2 en Y.</p>
+					</section>
+
+					<section class="subsection">
+						<h4>Actividad rápida</h4>
+						<p>En tu cuaderno: marca cinco puntos A, B, C, D, E y nómbralos. Intenta describir la posición de A respecto a B (<em>p. ej.</em> "A está arriba y a la derecha de B").</p>
+
+						<!-- Acciones: ticks para avanzar progreso (5% y 15%) -->
+						<div class="activity-actions">
+							<label class="activity-tick">
+								<input type="checkbox" id="activityTick" />
+								<span class="tick-ui" aria-hidden="true">✅</span>
+								<span class="tick-label">He realizado la actividad básica ( +5% )</span>
+							</label>
+
+							<span id="activityHint" class="activity-hint">Marcar suma progreso; desmarcar lo resta según la actividad.</span>
+						</div>
+					</section>
+
+				<!-- NUEVO: Sección "Relación entre puntos" -->
+				<section class="subsection relation-section">
+					<h4>Relación entre puntos</h4>
+					<p>Dos puntos distintos siempre determinan una recta. Tres puntos pueden estar alineados o no. Esto es fundamental para construir figuras.</p>
+					<p class="idea"> Idea clave: Sin puntos, no hay rectas. Sin rectas, no hay figuras.</p>
+
+					<div class="interactive-wrapper">
+					  <div class="interactive-instructions">Actividad: "Colocá el punto" — hacé clic en el área para crear puntos. Al unir dos puntos aparece una recta.</div>
+
+					  <!-- Área interactiva SVG -->
+					  <div class="interactive-area" aria-label="Área para colocar puntos">
+					    <svg id="pointCanvas" class="interactive-svg" viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="pointCanvasLabel" tabindex="0">
+					      <title id="pointCanvasLabel">Canvas interactivo para colocar puntos y unirlos</title>
+					      <!-- elementos se crearán dinámicamente aquí -->
+					    </svg>
+					  </div>
+
+					  <div class="interactive-controls">
+					    <button id="clearPointsBtn" class="btn-small">Limpiar puntos</button>
+					    <span id="pointsCount" class="points-count">Puntos: 0</span>
+					  </div>
+					</div>
+				</section>
+				<!-- FIN NUEVO -->
+
+				<!-- NUEVO: 3. La recta -->
+				<section class="lesson-section">
+					<h2><b>La recta 📏</b></h2>
+					<h4>¿Qué es una recta?</h4>
+					<p>Una <strong>recta</strong> es un conjunto infinito de puntos que:</p>
+					<ul class="definition-list">
+						<li>se extiende indefinidamente en ambos sentidos</li>
+						<li>no tiene inicio ni fin</li>
+						<li>tiene una sola dimensión (longitud)</li>
+					</ul>
+					<p>Aunque la dibujamos con extremos por el límite de la hoja, esa representación no refleja su extensión real.</p>
+
+					<figure class="line-figure">
+						<svg class="line-svg" viewBox="0 0 720 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recta con flechas y puntos A y B">
+							<defs>
+								<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+									<path d="M0 0 L10 5 L0 10 z" fill="var(--accent-primary)"></path>
+								</marker>
+							</defs>
+							<line x1="40" y1="60" x2="680" y2="60" stroke="var(--text-secondary)" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+							<!-- puntos A y B sobre la recta -->
+							<circle cx="220" cy="60" r="6" fill="var(--accent-primary)"/>
+							<text x="232" y="58" font-size="14" fill="var(--text-primary)">A</text>
+							<circle cx="480" cy="60" r="6" fill="var(--accent-primary)"/>
+							<text x="492" y="58" font-size="14" fill="var(--text-primary)">B</text>
+						</svg>
+						<figcaption>Figura: recta con flechas en ambos extremos pasando por A y B.</figcaption>
+					</figure>
+
+					<section class="subsection">
+						<h4>Breve actividad</h4>
+						<p>Dibuja en tu cuaderno una recta y marca dos puntos A y B. Observa que la recta sigue más allá de la hoja.</p>
+
+						<!-- Tick extra de la recta (colocado justo debajo de "Breve actividad") -->
+						<div class="activity-actions" style="margin-top:0.6rem;">
+							<label class="activity-tick" title="Marca si completaste la actividad extra de rectas (+15%)">
+								<input type="checkbox" id="activityTick15" />
+								<span class="tick-ui" aria-hidden="true">🎯</span>
+								<span class="tick-label">Actividad extra de rectas ( +15% )</span>
+							</label>
+						</div>
+					</section>
+				</section>
+				<!-- FIN NUEVO -->
+
+				<!-- NUEVO: Sección "Tipos relacionados" y Regla virtual -->
+				<section class="subsection recta-details">
+					<h4>Tipos relacionados</h4>
+					<p><strong>Segmento:</strong> parte de una recta entre dos puntos.</p>
+					<p><strong>Semirrecta (rayo):</strong> comienza en un punto y se extiende infinitamente en una dirección.</p>
+					<p><strong>Ejemplo cotidiano:</strong> una calle recta (segmento); un rayo de luz (semirrecta).</p>
+
+					<h4>Posición de rectas</h4>
+					<ul class="definition-list">
+						<li><strong>Paralelas:</strong> no se cortan</li>
+						<li><strong>Secantes:</strong> se cruzan</li>
+						<li><strong>Perpendiculares:</strong> se cruzan formando 90°</li>
+					</ul>
+					<p class="svg-caption">Imagen sugerida: tres pares de rectas mostrando cada caso.</p>
+
+					<!-- NUEVO: SVG generado por JS: ejemplos de rectas (paralelas / secantes / perpendiculares) -->
+					<div class="line-examples" aria-hidden="false" title="Ejemplos: paralelas, secantes, perpendiculares">
+					  <svg id="lineExamplesSvg" class="line-examples-svg" role="img" tabindex="0" aria-label="Tres ejemplos de pares de rectas"></svg>
+					</div>
+
+					<h4 style="margin-top:0.8rem;">Regla virtual — actividad sugerida</h4>
+					<p class="interactive-instructions">Colocá dos puntos en el área abajo. El sistema trazará la recta y mostrará la distancia (px y unidades aproximadas). Al medir por primera vez se añade +20% al progreso de la lección.</p>
+
+					<div class="ruler-wrapper">
+						<div class="interactive-area" aria-label="Regla virtual para colocar dos puntos">
+							<svg id="rulerCanvas" class="ruler-svg" viewBox="0 0 1000 240" preserveAspectRatio="xMidYMid meet" role="img" tabindex="0">
+								<title>Regla virtual: haga clic para colocar puntos</title>
+								<!-- elementos dinámicos: puntos y línea -->
+							</svg>
+						</div>
+
+						<div class="ruler-controls">
+							<button id="rulerClearBtn" class="btn-small" type="button">Limpiar</button>
+							<button id="rulerMeasureBtn" class="btn-small" type="button">Medir distancia</button>
+							<span id="rulerDistance" class="measure-display">Distancia: —</span>
+						</div>
+					</div>
+				</section>
+				<!-- FIN NUEVO -->
+
+				<!-- NUEVO: 4. El plano -->
+				<section class="subsection plane-section">
+					<h2>El plano 🟦</h2>
+					<h4>¿Qué es un plano?</h4>
+					<p>Un <strong>plano</strong> es una superficie plana infinita, sin espesor.</p>
+
+					<h4>Ejemplos reales aproximados:</h4>
+					<ul class="definition-list">
+						<li>Una hoja de papel</li>
+						<li>Una mesa</li>
+						<li>Una pared lisa</li>
+					</ul>
+
+					<p>Un plano:</p>
+					<ul class="definition-list">
+						<li>contiene infinitos puntos</li>
+						<li>contiene infinitas rectas</li>
+					</ul>
+
+					<h4>Cómo se determina un plano</h4>
+					<p>Un plano queda determinado por:</p>
+					<ul class="definition-list">
+						<li><strong>Tres puntos no alineados</strong></li>
+						<li><strong>Dos rectas que se cortan</strong></li>
+					</ul>
+					<p>Esto es clave para construcciones y para la geometría espacial posterior: desde un plano podemos definir alturas, proyecciones y figuras en 3D.</p>
+
+					<h4>Plano y figuras</h4>
+					<p>Todas las figuras de la geometría básica (triángulos, cuadriláteros, círculos) viven en un plano.</p>
+
+					<p class="idea">🧠 Idea clave: La geometría plana estudia lo que pasa dentro de un plano.</p>
+
+					<p class="svg-caption">Imagen: Un plano sombreado con varios puntos y rectas sobre él.</p>
+
+					<!-- SVG interactivo principal usado por puntosylineas.js -->
+					<div class="plane-examples">
+						<svg id="planeExampleSvg" class="plane-examples-svg" viewBox="0 0 1000 360" role="img" aria-label="Ejemplo de plano con puntos y rectas" tabindex="0"></svg>
+					</div>
+
+					<!-- Controles de la interactividad del plano -->
+					<div class="plane-interactive-controls" style="margin-top:0.6rem;">
+						<p class="interactive-instructions">🔧 Interactividad sugerida — mové puntos dentro del plano; hacé click para bloquear/desbloquear y ver alineaciones.</p>
+						<div style="display:flex;gap:0.6rem;align-items:center;margin-top:0.4rem;">
+							<button id="planeResetBtn" class="btn-small" type="button">Reiniciar puntos</button>
+							<span id="planeStatus" class="activity-hint" aria-live="polite"></span>
+						</div>
+					</div>
+
+					<!-- NUEVO: Mini desafío (al final de la sección del plano) -->
+					<section class="subsection" id="miniChallengeSection">
+					  <h4>Mini desafío</h4>
+					  <p>Colocá tres puntos de forma que:</p>
+					  <ul class="definition-list">
+					    <li>dos estén alineados</li>
+					    <li>el tercero no</li>
+					  </ul>
+					  <p>Luego: uní los puntos y observá qué figura se forma.</p>
+
+					  <div style="display:flex;gap:0.75rem;align-items:center;margin-top:0.6rem;">
+					    <!-- se elimina el botón; la casilla queda funcional y ahora con label visible -->
+					    <label class="activity-tick" style="margin-left:0.5rem;" title="Marcar mini desafío (+35%)">
+					      <input type="checkbox" id="miniChallengeTick" />
+					      <span class="tick-ui" aria-hidden="true"></span>
+					      <span class="tick-label" style="font-weight:700;margin-left:0.45rem;">Marcar como completada</span>
+					    </label>
+					    <span id="miniChallengeStatus" class="activity-hint" aria-live="polite"></span>
+					  </div>
+
+					  <p class="svg-caption" style="margin-top:0.6rem;">Pista: si los tres puntos no son colineales, al unirlos formarán un triángulo.</p>
+					</section>
+					<!-- FIN NUEVO -->
+
+				</section>
+				<!-- Footer de la lección -->
+				<footer class="lesson-footer"></footer>
+			</article>
+		</div>
+	</main>
+
+	<!-- Script principal (se ejecuta tras parsear el DOM) -->
+	<script src="puntosylineas.js"></script>
+</body>
+</html>
